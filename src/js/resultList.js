@@ -11,7 +11,7 @@ function showRestaurants(restaurantList) {
   let selectedPrice = JSON.parse(localStorage.getItem('price'))
   let selectedVeggieOption = JSON.parse(localStorage.getItem('veggie'))
 
-  let filteredByCategory = RestaurantData.filter((restaurant) => {
+  let filteredRestaurants = RestaurantData.filter((restaurant) => {
     return (
       restaurant.Kategorie === selectedCategory &&
       restaurant.Entfernung === selectedDistance &&
@@ -20,11 +20,10 @@ function showRestaurants(restaurantList) {
     )
   })
 
-  console.log(filteredByCategory)
-
-  restaurantList.innerHTML = filteredByCategory
-    .map((restaurant) => {
-      return `
+  if (filteredRestaurants != '') {
+    restaurantList.innerHTML = filteredRestaurants
+      .map((restaurant) => {
+        return `
    <section>
    <li>${restaurant.Name} |</li>
    <li>🏎️${restaurant.Entfernung} |</li>
@@ -32,6 +31,9 @@ function showRestaurants(restaurantList) {
    <li>🥑${restaurant.Veggie} |</li>
    <li>${restaurant.Adresse}</li>
    </section>`
-    })
-    .join('')
+      })
+      .join('')
+  } else {
+    restaurantList.innerHTML = `<section><li>Sorry, für deine Auswahl gibt es keine Restaurants.</li></section>`
+  }
 }
