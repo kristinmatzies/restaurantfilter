@@ -31,6 +31,8 @@ function showRestaurants(restaurantList) {
 
   if (filteredRestaurants != '') {
     restaurantList.innerHTML = filteredRestaurants
+      .slice()
+      .sort(() => randomize(filteredRestaurants))
       .map((restaurant) => {
         return `
    <section>
@@ -52,4 +54,9 @@ function resetFilter(restaurantList) {
   filters.forEach((filter) => filter.classList.remove('selected'))
   localStorage.clear()
   restaurantList.innerHTML = ''
+}
+
+function randomize(filteredRestaurants) {
+  const maxIndex = filteredRestaurants.length - 1
+  return Math.round(Math.random() * maxIndex)
 }
