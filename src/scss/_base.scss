@@ -1,0 +1,11 @@
+$font-color: #0f2522;
+$primary-color: #549ab2;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: $font-color;
+}
