@@ -13,10 +13,14 @@ function showRestaurants(restaurantList) {
 
   let filteredRestaurants = RestaurantData.filter((restaurant) => {
     return (
-      restaurant.Kategorie === selectedCategory &&
-      restaurant.Entfernung === selectedDistance &&
-      restaurant.Preis === selectedPrice &&
-      restaurant.Veggie === selectedVeggieOption
+      /* (restaurant.Kategorie === selectedCategory &&
+        restaurant.Entfernung === selectedDistance &&
+        restaurant.Preis === selectedPrice &&
+        restaurant.Veggie === selectedVeggieOption) || */
+      (selectedCategory && restaurant.Kategorie === selectedCategory) ||
+      (selectedDistance && restaurant.Entfernung === selectedDistance) ||
+      (selectedPrice && restaurant.Preis === selectedPrice) ||
+      (selectedVeggieOption && restaurant.Veggie === selectedVeggieOption)
     )
   })
 
@@ -34,6 +38,7 @@ function showRestaurants(restaurantList) {
       })
       .join('')
   } else {
-    restaurantList.innerHTML = `<section><li>Sorry, für deine Auswahl gibt es keine Restaurants.</li></section>`
+    restaurantList.innerHTML = `<section><li>Sorry, für deine Auswahl gibt es keine Restaurants.</li>
+   </section>`
   }
 }
