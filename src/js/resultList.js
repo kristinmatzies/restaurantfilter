@@ -8,11 +8,21 @@ randomizeButton.addEventListener('click', () => showRestaurants(resultList))
 function showRestaurants(restaurantList) {
   let selectedCategory = JSON.parse(localStorage.getItem('category'))
   let selectedDistance = JSON.parse(localStorage.getItem('distance'))
-  console.log(selectedDistance)
-  let filteredRestaurants = RestaurantData.filter(
-    (restaurant) => restaurant.Kategorie === selectedCategory
-  )
-  restaurantList.innerHTML = filteredRestaurants
+  let selectedPrice = JSON.parse(localStorage.getItem('price'))
+  let selectedVeggieOption = JSON.parse(localStorage.getItem('veggie'))
+
+  let filteredByCategory = RestaurantData.filter((restaurant) => {
+    return (
+      restaurant.Kategorie === selectedCategory &&
+      restaurant.Entfernung === selectedDistance &&
+      restaurant.Preis === selectedPrice &&
+      restaurant.Veggie === selectedVeggieOption
+    )
+  })
+
+  console.log(filteredByCategory)
+
+  restaurantList.innerHTML = filteredByCategory
     .map((restaurant) => {
       return `
    <section>
