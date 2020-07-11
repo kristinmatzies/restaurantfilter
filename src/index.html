@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="scss/styles.scss" />
-    <script defer src="main.js"></script>
+    <script defer src="js/main.js"></script>
     <title>Zufallsgenerator - Mittagessen</title>
   </head>
   <body>
@@ -17,30 +17,30 @@
     </header>
     <h2>Kategorien - Filter</h2>
     <section class="filter-container">
-      <div class="category">Alles</div>
-      <div class="category">Burger</div>
-      <div class="category">Pizza/Pasta</div>
-      <div class="category">Asiatisch</div>
-      <div class="category">Hausmannskost</div>
-      <div class="category">Sonstiges</div>
+      <div class="category" data-value="Alles">Alles</div>
+      <div class="category" data-value="Burger">Burger</div>
+      <div class="category" data-value="Pizza/Pasta">Pizza/Pasta</div>
+      <div class="category" data-value="Asiatisch">Asiatisch</div>
+      <div class="category" data-value="Hausmannskost">Hausmannskost</div>
+      <div class="category" data-value="Sonstiges">Sonstiges</div>
     </section>
     <h2>Entfernung</h2>
     <section class="filter-container">
-      <div class="distance">Egal</div>
-      <div class="distance">Nicht so weit weg</div>
-      <div class="distance">ganz nah dran</div>
+      <div class="distance" data-value="***">Egal</div>
+      <div class="distance" data-value="**">Nicht so weit weg</div>
+      <div class="distance" data-value="*">ganz nah dran</div>
     </section>
     <h2>Preis</h2>
     <section class="filter-container">
-      <div class="price">Egal</div>
-      <div class="price">Nicht zu viel</div>
-      <div class="price">Ende des Monats</div>
+      <div class="price" data-value="***">Egal</div>
+      <div class="price" data-value="**">Nicht zu viel</div>
+      <div class="price" data-value="*">Ende des Monats</div>
     </section>
     <h2>Veggietauglich</h2>
     <section class="filter-container">
-      <div class="veggie">Egal</div>
-      <div class="veggie">Sollte schon schmecken</div>
-      <div class="veggie">Muss ganz lecker sein</div>
+      <div class="veggie" data-value="*">Egal</div>
+      <div class="veggie" data-value="**">Sollte schon schmecken</div>
+      <div class="veggie" data-value="***">Muss ganz lecker sein</div>
     </section>
     <h2>Ergebnisse</h2>
     <ul class="results"></ul>

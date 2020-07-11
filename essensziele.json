@@ -3,7 +3,7 @@
     "Name": "Perle",
     "Entfernung": "*",
     "Preis": "*",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Spitalerstraße 22, 20095 Hamburg",
     "Kategorie": "Alles"
   },
@@ -11,7 +11,7 @@
     "Name": "Europapassage",
     "Entfernung": "*",
     "Preis": "**",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Ballindamm 40 EG2, 20095 Hamburg",
     "Kategorie": "Alles"
   },
@@ -19,7 +19,7 @@
     "Name": "Max & Consorten",
     "Entfernung": "***",
     "Preis": "*",
-    "Veggie-Tauglich": "**",
+    "Veggie": "**",
     "Adresse": "Spadenteich 1, 20099 Hamburg",
     "Kategorie": "Hausmannskost"
   },
@@ -27,23 +27,23 @@
     "Name": "Luigi's",
     "Entfernung": "***",
     "Preis": "**",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Ditmar-Koel-Straße 21, 20459 Hamburg",
-    "Kategorie": "Pizza / Pasta"
+    "Kategorie": "Pizza/Pasta"
   },
   {
     "Name": "Bella Italia",
     "Entfernung": "**",
     "Preis": "*",
-    "Veggie-Tauglich": "**",
+    "Veggie": "**",
     "Adresse": "Brandstwiete 58, 20457 Hamburg",
-    "Kategorie": "Pizza / Pasta"
+    "Kategorie": "Pizza/Pasta"
   },
   {
     "Name": "Restaurant Kabul",
     "Entfernung": "***",
     "Preis": "*",
-    "Veggie-Tauglich": "**",
+    "Veggie": "**",
     "Adresse": "Steindamm 53, 20099 Hamburg",
     "Kategorie": "Sonstiges"
   },
@@ -51,7 +51,7 @@
     "Name": "Goot",
     "Entfernung": "**",
     "Preis": "***",
-    "Veggie-Tauglich": "*",
+    "Veggie": "*",
     "Adresse": "Depenau 10, 20095 Hamburg",
     "Kategorie": "Hausmannskost"
   },
@@ -59,7 +59,7 @@
     "Name": "O-ren Ishii",
     "Entfernung": "**",
     "Preis": "***",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Kleine Reichenstraße 18, 20457 Hamburg",
     "Kategorie": "Asiatisch"
   },
@@ -67,7 +67,7 @@
     "Name": "Better Burger Company",
     "Entfernung": "*",
     "Preis": "**",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Rosenstraße Ecke, Gertrudenkirchhof, 20095 Hamburg",
     "Kategorie": "Burger"
   },
@@ -75,7 +75,7 @@
     "Name": "Bucks Burgers",
     "Entfernung": "**",
     "Preis": "**",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Kurze Mühren 13, 20095 Hamburg",
     "Kategorie": "Burger"
   },
@@ -83,7 +83,7 @@
     "Name": "Mr. Cherng",
     "Entfernung": "**",
     "Preis": "***",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Speersort 1, 20095 Hamburg",
     "Kategorie": "Asiatisch"
   },
@@ -91,8 +91,8 @@
     "Name": "Franco Rathauspassage",
     "Entfernung": "**",
     "Preis": "**",
-    "Veggie-Tauglich": "***",
+    "Veggie": "***",
     "Adresse": "Rathausmarkt 7, 20095 Hamburg",
-    "Kategorie": "Pizza / Pasta"
+    "Kategorie": "Pizza/Pasta"
   }
 ]

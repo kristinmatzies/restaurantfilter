@@ -6,10 +6,29 @@
     border: 1px solid $primary-color;
     margin: 4px;
     padding: 12px;
+  }
+}
 
-    &.selected {
-      background: $primary-color;
-      color: white;
+.selected {
+  background: $primary-color;
+  color: white;
+}
+
+.results {
+  display: grid;
+  margin: 16px 0;
+  padding: 8px;
+  border: 2px solid $primary-color;
+  width: 60%;
+
+  section {
+    @media (min-width: 768px) {
+      display: flex;
     }
+  }
+
+  li {
+    list-style: none;
+    padding: 8px;
   }
 }
