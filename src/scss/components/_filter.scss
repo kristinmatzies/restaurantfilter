@@ -15,15 +15,15 @@
 }
 
 .results {
-  display: grid;
   margin: 16px 0;
   padding: 8px;
   border: 2px solid $primary-color;
-  width: 60%;
+  width: 100%;
 
   section {
     @media (min-width: 768px) {
       display: flex;
+      width: 60%;
     }
   }
 

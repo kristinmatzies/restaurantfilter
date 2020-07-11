@@ -13,7 +13,6 @@ function showRestaurants(restaurantList) {
   let selectedDistance = JSON.parse(localStorage.getItem('distance'))
   let selectedPrice = JSON.parse(localStorage.getItem('price'))
   let selectedVeggieOption = JSON.parse(localStorage.getItem('veggie'))
-
   let filteredRestaurants = RestaurantData.filter((restaurant) => {
     return selectedCategory &&
       selectedDistance &&
