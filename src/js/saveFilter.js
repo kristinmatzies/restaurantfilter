@@ -1,10 +1,7 @@
-import showRestaurants from './resultList'
-
 const categories = document.querySelectorAll('.category')
 const distanceOptions = document.querySelectorAll('.distance')
 const priceOptions = document.querySelectorAll('.price')
 const veggieOptions = document.querySelectorAll('.veggie')
-const resultList = document.querySelector('.results')
 
 categories.forEach((category) => {
   category.addEventListener('click', (event) => {
@@ -14,7 +11,6 @@ categories.forEach((category) => {
       'category',
       JSON.stringify(category.getAttribute('data-value'))
     )
-    showRestaurants(resultList)
   })
 })
 

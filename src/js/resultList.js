@@ -1,13 +1,16 @@
 import RestaurantData from '../../essensziele.json'
 
-const resetButton = document.querySelector('.reset-button')
-const randomizeButton = document.querySelector('.reset-button')
 const resultList = document.querySelector('.results')
+const randomizeButton = document.querySelector('.randomize-button')
 
-export default function showRestaurants(restaurantList) {
-  let category = JSON.parse(localStorage.getItem('category'))
+randomizeButton.addEventListener('click', () => showRestaurants(resultList))
+
+function showRestaurants(restaurantList) {
+  let selectedCategory = JSON.parse(localStorage.getItem('category'))
+  let selectedDistance = JSON.parse(localStorage.getItem('distance'))
+  console.log(selectedDistance)
   let filteredRestaurants = RestaurantData.filter(
-    (restaurant) => restaurant.Kategorie === category
+    (restaurant) => restaurant.Kategorie === selectedCategory
   )
   restaurantList.innerHTML = filteredRestaurants
     .map((restaurant) => {
@@ -22,4 +25,3 @@ export default function showRestaurants(restaurantList) {
     })
     .join('')
 }
-showRestaurants(resultList)
