@@ -2,8 +2,11 @@ import RestaurantData from '../../essensziele.json'
 
 const resultList = document.querySelector('.results')
 const randomizeButton = document.querySelector('.randomize-button')
+const resetButton = document.querySelector('.reset-button')
+const filters = document.querySelectorAll('div')
 
 randomizeButton.addEventListener('click', () => showRestaurants(resultList))
+resetButton.addEventListener('click', () => resetFilter(resultList))
 
 function showRestaurants(restaurantList) {
   let selectedCategory = JSON.parse(localStorage.getItem('category'))
@@ -12,16 +15,18 @@ function showRestaurants(restaurantList) {
   let selectedVeggieOption = JSON.parse(localStorage.getItem('veggie'))
 
   let filteredRestaurants = RestaurantData.filter((restaurant) => {
-    return (
-      /* (restaurant.Kategorie === selectedCategory &&
-        restaurant.Entfernung === selectedDistance &&
-        restaurant.Preis === selectedPrice &&
-        restaurant.Veggie === selectedVeggieOption) || */
-      (selectedCategory && restaurant.Kategorie === selectedCategory) ||
-      (selectedDistance && restaurant.Entfernung === selectedDistance) ||
-      (selectedPrice && restaurant.Preis === selectedPrice) ||
-      (selectedVeggieOption && restaurant.Veggie === selectedVeggieOption)
-    )
+    return selectedCategory &&
+      selectedDistance &&
+      selectedPrice &&
+      selectedVeggieOption
+      ? restaurant.Kategorie === selectedCategory &&
+          restaurant.Entfernung === selectedDistance &&
+          restaurant.Preis === selectedPrice &&
+          restaurant.Veggie === selectedVeggieOption
+      : restaurant.Kategorie === selectedCategory ||
+          restaurant.Entfernung === selectedDistance ||
+          restaurant.Preis === selectedPrice ||
+          restaurant.Veggie === selectedVeggieOption
   })
 
   if (filteredRestaurants != '') {
@@ -41,4 +46,10 @@ function showRestaurants(restaurantList) {
     restaurantList.innerHTML = `<section><li>Sorry, für deine Auswahl gibt es keine Restaurants.</li>
    </section>`
   }
+}
+
+function resetFilter(restaurantList) {
+  filters.forEach((filter) => filter.classList.remove('selected'))
+  localStorage.clear()
+  restaurantList.innerHTML = ''
 }
