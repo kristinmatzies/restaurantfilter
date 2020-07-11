@@ -9,3 +9,32 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: $font-color;
 }
+
+h1 {
+  color: $primary-color;
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+button {
+  width: 120px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
