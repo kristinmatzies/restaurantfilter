@@ -3,58 +3,31 @@ const distanceOptions = document.querySelectorAll('.distance')
 const priceOptions = document.querySelectorAll('.price')
 const veggieOptions = document.querySelectorAll('.veggie')
 
-categories.forEach((category) => {
-  category.addEventListener('click', (event) => {
-    event.preventDefault()
-    categories.forEach((category) => {
-      category.classList.remove('selected')
-    })
-    category.classList.add('selected')
-    localStorage.setItem(
-      'category',
-      JSON.stringify(category.getAttribute('data-value'))
-    )
-  })
-})
+saveFilter(categories)
+saveFilter(distanceOptions)
+saveFilter(priceOptions)
+saveFilter(veggieOptions)
 
-distanceOptions.forEach((distance) => {
-  distance.addEventListener('click', (event) => {
-    event.preventDefault()
-    distanceOptions.forEach((distance) => {
-      distance.classList.remove('selected')
-    })
-    distance.classList.add('selected')
-    localStorage.setItem(
-      'distance',
-      JSON.stringify(distance.getAttribute('data-value'))
-    )
+function removeClasslist(filters) {
+  filters.forEach((filter) => {
+    filter.classList.remove('selected')
   })
-})
+}
 
-priceOptions.forEach((price) => {
-  price.addEventListener('click', (event) => {
-    event.preventDefault()
-    priceOptions.forEach((price) => {
-      price.classList.remove('selected')
-    })
-    price.classList.add('selected')
-    localStorage.setItem(
-      'price',
-      JSON.stringify(price.getAttribute('data-value'))
-    )
-  })
-})
+function saveToStorage(name, data) {
+  localStorage.setItem(name, JSON.stringify(data))
+}
 
-veggieOptions.forEach((veggie) => {
-  veggie.addEventListener('click', (event) => {
-    event.preventDefault()
-    veggieOptions.forEach((veggie) => {
-      veggie.classList.remove('selected')
+function saveFilter(filters) {
+  filters.forEach((filter) => {
+    filter.addEventListener('click', (event) => {
+      event.preventDefault()
+      removeClasslist(filters)
+      filter.classList.add('selected')
+      saveToStorage(
+        filter.className.split(' ')[0],
+        filter.getAttribute('data-value')
+      )
     })
-    veggie.classList.add('selected')
-    localStorage.setItem(
-      'veggie',
-      JSON.stringify(veggie.getAttribute('data-value'))
-    )
   })
-})
+}
