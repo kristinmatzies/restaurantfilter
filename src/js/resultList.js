@@ -9,10 +9,11 @@ randomizeButton.addEventListener('click', () => showRestaurants(resultList))
 resetButton.addEventListener('click', () => resetFilter(resultList))
 
 function showRestaurants(restaurantList) {
-  let selectedCategory = JSON.parse(localStorage.getItem('category'))
-  let selectedDistance = JSON.parse(localStorage.getItem('distance'))
-  let selectedPrice = JSON.parse(localStorage.getItem('price'))
-  let selectedVeggieOption = JSON.parse(localStorage.getItem('veggie'))
+  const selectedCategory = loadFromStorage('category')
+  const selectedDistance = loadFromStorage('distance')
+  const selectedPrice = loadFromStorage('price')
+  const selectedVeggieOption = loadFromStorage('veggie')
+
   let filteredRestaurants = RestaurantData.filter((restaurant) => {
     return selectedCategory &&
       selectedDistance &&
@@ -29,9 +30,8 @@ function showRestaurants(restaurantList) {
   })
 
   if (filteredRestaurants != '') {
+    shuffle(filteredRestaurants)
     restaurantList.innerHTML = filteredRestaurants
-      .slice()
-      .sort(() => randomize(filteredRestaurants))
       .map((restaurant) => {
         return `
    <section>
@@ -55,7 +55,17 @@ function resetFilter(restaurantList) {
   restaurantList.innerHTML = ''
 }
 
-function randomize(filteredRestaurants) {
-  const maxIndex = filteredRestaurants.length - 1
-  return Math.round(Math.random() * maxIndex)
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+}
+
+function loadFromStorage(name) {
+  try {
+    return JSON.parse(localStorage.getItem(name))
+  } catch (error) {
+    console.log(error.message)
+  }
 }

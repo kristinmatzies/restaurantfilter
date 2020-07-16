@@ -8,26 +8,30 @@ saveFilter(distanceOptions)
 saveFilter(priceOptions)
 saveFilter(veggieOptions)
 
-function removeClasslist(filters) {
-  filters.forEach((filter) => {
-    filter.classList.remove('selected')
-  })
-}
-
-function saveToStorage(name, data) {
-  localStorage.setItem(name, JSON.stringify(data))
-}
-
 function saveFilter(filters) {
   filters.forEach((filter) => {
     filter.addEventListener('click', (event) => {
       event.preventDefault()
-      removeClasslist(filters)
-      filter.classList.add('selected')
+      removeClassList(filters)
+      addClassList(filter)
       saveToStorage(
         filter.className.split(' ')[0],
         filter.getAttribute('data-value')
       )
     })
   })
+}
+
+function removeClassList(filters) {
+  filters.forEach((filter) => {
+    filter.classList.remove('selected')
+  })
+}
+
+function addClassList(filter) {
+  filter.classList.add('selected')
+}
+
+function saveToStorage(name, data) {
+  localStorage.setItem(name, JSON.stringify(data))
 }
