@@ -34,10 +34,6 @@ function showRestaurants(restaurantList) {
 
   let filteredRestaurants = RestaurantData.filter((restaurant) => {
     return (
-      selectedCategory &&
-      selectedDistance &&
-      selectedPrice &&
-      selectedVeggieOption &&
       restaurant.Kategorie === selectedCategory &&
       restaurant.Entfernung === selectedDistance &&
       restaurant.Preis === selectedPrice &&
