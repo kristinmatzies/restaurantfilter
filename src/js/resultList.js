@@ -5,6 +5,24 @@ const randomizeButton = document.querySelector('.randomize-button')
 const resetButton = document.querySelector('.reset-button')
 const filters = document.querySelectorAll('div')
 
+filters.forEach((filter) => {
+  filter.addEventListener('click', (event) => {
+    event.preventDefault()
+    const selectedCategory = loadFromStorage('category')
+    const selectedDistance = loadFromStorage('distance')
+    const selectedPrice = loadFromStorage('price')
+    const selectedVeggieOption = loadFromStorage('veggie')
+    if (
+      selectedCategory &&
+      selectedDistance &&
+      selectedPrice &&
+      selectedVeggieOption
+    ) {
+      randomizeButton.classList.remove('hidden')
+    }
+  })
+})
+
 randomizeButton.addEventListener('click', () => showRestaurants(resultList))
 resetButton.addEventListener('click', () => resetFilter(resultList))
 
@@ -15,18 +33,16 @@ function showRestaurants(restaurantList) {
   const selectedVeggieOption = loadFromStorage('veggie')
 
   let filteredRestaurants = RestaurantData.filter((restaurant) => {
-    return selectedCategory &&
+    return (
+      selectedCategory &&
       selectedDistance &&
       selectedPrice &&
-      selectedVeggieOption
-      ? restaurant.Kategorie === selectedCategory &&
-          restaurant.Entfernung === selectedDistance &&
-          restaurant.Preis === selectedPrice &&
-          restaurant.Veggie === selectedVeggieOption
-      : restaurant.Kategorie === selectedCategory ||
-          restaurant.Entfernung === selectedDistance ||
-          restaurant.Preis === selectedPrice ||
-          restaurant.Veggie === selectedVeggieOption
+      selectedVeggieOption &&
+      restaurant.Kategorie === selectedCategory &&
+      restaurant.Entfernung === selectedDistance &&
+      restaurant.Preis === selectedPrice &&
+      restaurant.Veggie === selectedVeggieOption
+    )
   })
 
   if (filteredRestaurants != '') {
